@@ -44,9 +44,9 @@ echo "Database: Connected successfully<br/>";
 echo "<form action=\"view.php\" method=\"GET\">Suche: <input type=\"text\" name=\"search\" value=\"$search\" /><input type=\"submit\" /><br/>";
 
 
-echo "<a href=\"http://172.16.100.9/erp/view.php?view=addcomponent\">Add</a> ";
-echo "<a href=\"http://172.16.100.9/erp/view.php?view=components\">Components</a> ";
-echo "<a href=\"http://172.16.100.9/erp/view.php?view=storage\">Storage</a>";
+echo "<a href=\"view.php?view=addcomponent\">Add</a> ";
+echo "<a href=\"view.php?view=components\">Components</a> ";
+echo "<a href=\"view.php?view=storage\">Storage</a>";
 
 if($search != null)
 {
@@ -63,8 +63,8 @@ if($search != null)
 	echo "<td>".$row["Description"]."</td>";
 	echo "<td>".$row["Category"]."</td>";
 	echo "<td>".$row["Stock"]."</td>";
-	echo "<td><a href=\"http://172.16.100.9/erp/view.php?search=".$search."&add=".$row["ID"]."\">+</a></td>";
-	echo "<td><a href=\"http://172.16.100.9/erp/view.php?search=".$search."&remove=".$row["ID"]."\">-</a></td>";
+	echo "<td><a href=\"view.php?search=".$search."&add=".$row["ID"]."\">+</a></td>";
+	echo "<td><a href=\"view.php?search=".$search."&remove=".$row["ID"]."\">-</a></td>";
 	echo "</tr>";
 
 	}
@@ -157,8 +157,8 @@ switch($view)
 		echo "<td>".$row["Description"]."</td>";
 		echo "<td>".$row["Category"]."</td>";
 		echo "<td>".$row["Stock"]."</td>";
-		echo "<td><a href=\"http://172.16.100.9/erp/view.php?view=components&add=".$row["ID"]."\">+</a></td>";
-		echo "<td><a href=\"http://172.16.100.9/erp/view.php?view=components&remove=".$row["ID"]."\">-</a></td>";
+		echo "<td><a href=\"view.php?view=components&add=".$row["ID"]."\">+</a></td>";
+		echo "<td><a href=\"view.php?view=components&remove=".$row["ID"]."\">-</a></td>";
 
 		echo "</tr>";
 
@@ -180,7 +180,7 @@ switch($view)
 			echo "<td>".$row["ID"]."</td>";
 			echo "<td>".$row["Name"]."</td>";
 			echo "<td>".$row["Date"]."</td>";
-			echo "<td><a href=\"http://172.16.100.9/erp/view.php?view=storage&param1=".$row["Name"]."\">View</a></td>";
+			echo "<td><a href=\"view.php?view=storage&param1=".$row["Name"]."\">View</a></td>";
 			echo "</tr>";
 
 			}
