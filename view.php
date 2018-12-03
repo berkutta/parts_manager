@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+
+$config = include('config.php');
+
+if( $_SESSION["user"] != $config['user'] ) {
+	echo "User not logged in";
+
+	header("Location: index.php");
+
+	exit;
+}
+
 $view = htmlspecialchars($_GET["view"]);
 $param1 = htmlspecialchars($_GET["param1"]);
 
@@ -22,8 +34,6 @@ else
 {
 echo "View: ".$view."<br/>";
 }
-
-$config = include('config.php');
 
 $mysqli =  mysqli_connect($config['dbhost'], $config['dbuser'], $config['dbpassword'], $config['dbname']);
 

@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+
+$config = include('config.php');
+
+if( $_SESSION["user"] != $config['user'] ) {
+	echo "User not logged in";
+
+	header("Location: index.php");
+
+	exit;
+}
+
 $data = json_decode(file_get_contents('php://input'), true);
 
 switch($data["operation"]) {
@@ -7,8 +19,6 @@ switch($data["operation"]) {
 	case "search":
 
 		$search = $data["search"];
-
-                $config = include('config.php');
 
 		$mysqli =  mysqli_connect($config['dbhost'], $config['dbuser'], $config['dbpassword'], $config['dbname']);
 
