@@ -23,7 +23,9 @@ else
 echo "View: ".$view."<br/>";
 }
 
-$mysqli =  mysqli_connect("localhost", "root", "pass", "erp");
+$config = include('config.php');
+
+$mysqli =  mysqli_connect($config['dbhost'], $config['dbuser'], $config['dbpassword'], $config['dbname']);
 
 // Check connection
 if (!$mysqli) {
