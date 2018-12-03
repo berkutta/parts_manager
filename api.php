@@ -5,8 +5,6 @@ session_start();
 $config = include('config.php');
 
 if( $_SESSION["user"] != $config['user'] ) {
-	echo "User not logged in";
-
 	header("Location: index.php");
 
 	exit;

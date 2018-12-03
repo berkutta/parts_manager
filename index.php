@@ -11,11 +11,9 @@ $config = include('config.php');
 if( !empty($username) && !empty($password) ) {
 
     if( $config['user'] == $username && $config['password'] == $password ) {
-        echo "Login success";
-
-        $_SESSION["user"] = $config['user'];
-
         header("Location: view.php");
+        
+        $_SESSION["user"] = $config['user'];
     } else {
         echo "Login unsuccess";
     }
