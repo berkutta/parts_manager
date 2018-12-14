@@ -170,7 +170,7 @@ switch($view)
 
 
 	case "components":
-		echo "<table><tr><td>ID</td><td>Storage</td><td>Description</td><td>Category</td><td>Stock</td>";
+		echo "<table><tr><td>ID</td><td>Storage</td><td>Description</td><td>Datasheet</td><td>Category</td><td>Stock</td>";
 
 		$sql = "SELECT * FROM components";
 
@@ -179,6 +179,13 @@ switch($view)
 		echo "<td>".$row["ID"]."</td>";
 		echo "<td>".$row["storage"]."</td>";
 		echo "<td>".$row["Description"]."</td>";
+		
+		if(!empty($row["datasheet"])) {
+			echo "<td><a href=".$row["datasheet"].">Link</a></td>";
+		} else {
+			echo "<td></td>";
+		}
+
 		echo "<td>".$row["Category"]."</td>";
 
 		if($row["stock_flag"] == 1) {
