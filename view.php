@@ -48,6 +48,26 @@ echo "<a href=\"view.php?view=addcomponent\">Add</a> ";
 echo "<a href=\"view.php?view=components\">Components</a> ";
 echo "<a href=\"view.php?view=storage\">Storage</a>";
 
+if($add != null)
+{
+	$string = "UPDATE components SET stock = stock + 1 WHERE ID = \"$add\"";
+	$res = mysqli_query($mysqli, $string);
+}
+
+if($remove != null)
+{
+	$string = "UPDATE components SET stock = stock - 1 WHERE ID = \"$remove\"";
+	$res = mysqli_query($mysqli, $string);
+}
+
+if($storage != null && $description != null && $category != null && $stock != null)
+{
+	echo "Tried to add yozr component!";
+
+	$string = "INSERT INTO components (storage, Description, Category, Stock, package) VALUES (\"$storage\", \"$description\", \"$category\", \"$stock\", \"$package\")";
+	$res = mysqli_query($mysqli, $string);
+}
+
 if($search != null)
 {
 	echo "<table><tr><td>ID</td><td>Storage</td><td>Description</td><td>Category</td><td>Stock</td>";
@@ -70,26 +90,6 @@ if($search != null)
 	}
 
 	echo "</table>";
-}
-
-if($storage != null && $description != null && $category != null && $stock != null)
-{
-	echo "Tried to add yozr component!";
-
-	$string = "INSERT INTO components (storage, Description, Category, Stock, package) VALUES (\"$storage\", \"$description\", \"$category\", \"$stock\", \"$package\")";
-	$res = mysqli_query($mysqli, $string);
-}
-
-if($add != null)
-{
-	$string = "UPDATE components SET stock = stock + 1 WHERE ID = \"$add\"";
-	$res = mysqli_query($mysqli, $string);
-}
-
-if($remove != null)
-{
-	$string = "UPDATE components SET stock = stock - 1 WHERE ID = \"$remove\"";
-	$res = mysqli_query($mysqli, $string);
 }
 
 switch($view)
