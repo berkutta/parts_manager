@@ -178,9 +178,12 @@ switch($view)
 		echo "<td>".$row["storage"]."</td>";
 		echo "<td>".$row["Description"]."</td>";
 		echo "<td>".$row["Category"]."</td>";
+
+		if($row["stock_flag"] == 1) {
 		echo "<td>".$row["Stock"]."</td>";
 		echo "<td><a href=\"view.php?view=components&add=".$row["ID"]."\">+</a></td>";
 		echo "<td><a href=\"view.php?view=components&remove=".$row["ID"]."\">-</a></td>";
+		}
 
 		echo "</tr>";
 		}
