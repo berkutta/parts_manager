@@ -82,31 +82,32 @@ echo "<a href=\"view.php?view=storage\">Storage</a>";
 
 if($add != null)
 {
-	$sql = "UPDATE components SET stock = stock + 1 WHERE ID = \"$add\"";
-	$pdo->query($sql);
+	$statement = $pdo->prepare("UPDATE components SET stock = stock + 1 WHERE ID = ?");
+	$statement->execute(array($add));
 }
 
 if($remove != null)
 {
-	$sql = "UPDATE components SET stock = stock - 1 WHERE ID = \"$remove\"";
-	$pdo->query($sql);
+	$statement = $pdo->prepare("UPDATE components SET stock = stock - 1 WHERE ID = ?");
+	$statement->execute(array($remove));
 }
 
 if($storage != null && $description != null && $category != null && $stock != null)
 {
-	echo "Tried to add yozr component!";
+	echo "Tried to add your component!";
 
-	$sql = "INSERT INTO components (storage, Description, Category, Stock, package) VALUES (\"$storage\", \"$description\", \"$category\", \"$stock\", \"$package\")";
-	$pdo->query($sql);
+	$statement = $pdo->prepare("INSERT INTO components (storage, Description, Category, Stock, package) VALUES (?, ?, ?, ?, ?)");
+	$statement->execute(array($storage, $description, $category, $stock, $package));
 }
 
 if($search != null)
 {
 	echo "<table><tr><td>ID</td><td>Storage</td><td>Description</td><td>Category</td><td>Stock</td>";
 
-	$sql = "SELECT DISTINCT * FROM `components` WHERE Description LIKE \"%$search%\" OR Storage LIKE \"%$search%\" OR Category LIKE \"%$search%\" OR Type LIKE \"%$search%\" OR package LIKE \"%$search%\"";
+	$statement = $pdo->prepare("SELECT DISTINCT * FROM `components` WHERE (Description LIKE :search) OR (Storage LIKE :search) OR (Category LIKE :search) OR (Type LIKE :search) OR (package LIKE :search)");
+	$statement->execute(array('search' => "%$search%"));
 
-	foreach ($pdo->query($sql) as $row) {
+	while($row = $statement->fetch()) {
 	echo "<tr>";
 	echo "<td>".$row["ID"]."</td>";
 	echo "<td>".$row["storage"]."</td>";
@@ -153,6 +154,7 @@ switch($view)
 
 		echo "<select name=\"package\">";
 		echo "<option value=none>none</option>";
+
 		$sql = "SELECT DISTINCT package FROM components";
 
 		foreach ($pdo->query($sql) as $row) {
@@ -180,9 +182,9 @@ switch($view)
 		echo "<td>".$row["Category"]."</td>";
 
 		if($row["stock_flag"] == 1) {
-		echo "<td>".$row["Stock"]."</td>";
-		echo "<td><a href=\"view.php?view=components&add=".$row["ID"]."\">+</a></td>";
-		echo "<td><a href=\"view.php?view=components&remove=".$row["ID"]."\">-</a></td>";
+			echo "<td>".$row["Stock"]."</td>";
+			echo "<td><a href=\"view.php?view=components&add=".$row["ID"]."\">+</a></td>";
+			echo "<td><a href=\"view.php?view=components&remove=".$row["ID"]."\">-</a></td>";
 		}
 
 		echo "</tr>";
@@ -198,12 +200,12 @@ switch($view)
 			$sql = "SELECT * FROM storage";
 
 			foreach ($pdo->query($sql) as $row) {
-			echo "<tr>";
-			echo "<td>".$row["ID"]."</td>";
-			echo "<td>".$row["Name"]."</td>";
-			echo "<td>".$row["Date"]."</td>";
-			echo "<td><a href=\"view.php?view=storage&param1=".$row["Name"]."\">View</a></td>";
-			echo "</tr>";
+				echo "<tr>";
+				echo "<td>".$row["ID"]."</td>";
+				echo "<td>".$row["Name"]."</td>";
+				echo "<td>".$row["Date"]."</td>";
+				echo "<td><a href=\"view.php?view=storage&param1=".$row["Name"]."\">View</a></td>";
+				echo "</tr>";
 			}
 
 			echo "</table>";
@@ -212,16 +214,17 @@ switch($view)
 		{
 			echo "<table><tr><td>ID</td><td>Storage</td><td>Description</td><td>Category</td><td>Stock</td>";
 
-			$sql = "SELECT * FROM components WHERE storage = \"$param1\"";
+			$statement = $pdo->prepare("SELECT * FROM components WHERE storage = ?");
+			$statement->execute(array($param1));
 
-			foreach ($pdo->query($sql) as $row) {
-			echo "<tr>";
-			echo "<td>".$row["ID"]."</td>";
-			echo "<td>".$row["storage"]."</td>";
-			echo "<td>".$row["Description"]."</td>";
-			echo "<td>".$row["Category"]."</td>";
-			echo "<td>".$row["Stock"]."</td>";
-			echo "</tr>";
+			while($row = $statement->fetch()) {
+				echo "<tr>";
+				echo "<td>".$row["ID"]."</td>";
+				echo "<td>".$row["storage"]."</td>";
+				echo "<td>".$row["Description"]."</td>";
+				echo "<td>".$row["Category"]."</td>";
+				echo "<td>".$row["Stock"]."</td>";
+				echo "</tr>";
 			}
 
 			echo "</table>";
