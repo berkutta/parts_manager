@@ -108,15 +108,30 @@ if($search != null)
 	$statement->execute(array('search' => "%$search%"));
 
 	while($row = $statement->fetch()) {
-	echo "<tr>";
-	echo "<td>".$row["ID"]."</td>";
-	echo "<td>".$row["storage"]."</td>";
-	echo "<td>".$row["Description"]."</td>";
-	echo "<td>".$row["Category"]."</td>";
-	echo "<td>".$row["Stock"]."</td>";
-	echo "<td><a href=\"view.php?search=".$search."&add=".$row["ID"]."\">+</a></td>";
-	echo "<td><a href=\"view.php?search=".$search."&remove=".$row["ID"]."\">-</a></td>";
-	echo "</tr>";
+		echo "<tr>";
+		echo "<td>".$row["ID"]."</td>";
+		echo "<td>".$row["storage"]."</td>";
+		echo "<td>".$row["Description"]."</td>";
+
+		if(!empty($row["datasheet"])) {
+			echo "<td><a href=".$row["datasheet"].">Link</a></td>";
+		} else {
+			echo "<td></td>";
+		}
+
+		echo "<td>".$row["Category"]."</td>";
+
+		if($row["stock_flag"] == 1) {
+			echo "<td>".$row["Stock"]."</td>";
+			echo "<td><a href=\"view.php?view=components&add=".$row["ID"]."\">+</a></td>";
+			echo "<td><a href=\"view.php?view=components&remove=".$row["ID"]."\">-</a></td>";
+		} else {
+			echo "<td></td>";
+			echo "<td></td>";
+			echo "<td></td>";
+		}
+
+		echo "</tr>";
 	}
 
 	echo "</table>";
