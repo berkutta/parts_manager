@@ -18,18 +18,12 @@ switch($data["operation"]) {
 
 		$search = $data["search"];
 
-		$mysqli =  mysqli_connect($config['dbhost'], $config['dbuser'], $config['dbpassword'], $config['dbname']);
+		$pdo = new PDO("mysql:host=".$config['dbhost'].";dbname=".$config['dbname'], $config['dbuser'], $config['dbpassword']);
 
-		// Check connection
-		if (!$mysqli) {
-		    die("Connection failed: " . mysqli_connect_error());
-		}
-
-		$string = "SELECT DISTINCT * FROM `components` WHERE Description LIKE \"%$search%\" OR Storage LIKE \"%$search%\" OR Category LIKE \"%$search%\" OR Type LIKE \"%$search%\" OR package LIKE \"%$search%\"";
-
-		$res = mysqli_query($mysqli, $string);
-
-		while ($row = mysqli_fetch_assoc($res)) {
+		$statement = $pdo->prepare("SELECT DISTINCT * FROM `components` WHERE (Description LIKE :search) OR (Storage LIKE :search) OR (Category LIKE :search) OR (Type LIKE :search) OR (package LIKE :search)");
+		$statement->execute(array('search' => "%$search%"));
+		
+		while($row = $statement->fetch()) {
 			$myresult["id"] = $row["ID"];
 			$myresult["storage"] = $row["storage"];
 			$myresult["description"] = $row["Description"];
