@@ -1,7 +1,7 @@
-FROM php:7.2.12-apache
+FROM php:7.3-apache
 MAINTAINER Benjamin Marty
 
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 COPY *.php /var/www/html/
 
