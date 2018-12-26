@@ -192,6 +192,10 @@ switch($view)
 			echo "<td>".$row["Stock"]."</td>";
 			echo "<td><a href=\"view.php?view=components&add=".$row["ID"]."\">+</a></td>";
 			echo "<td><a href=\"view.php?view=components&remove=".$row["ID"]."\">-</a></td>";
+		} else {
+			echo "<td></td>";
+			echo "<td></td>";
+			echo "<td></td>";
 		}
 
 		echo "</tr>";
