@@ -189,6 +189,8 @@ switch($view)
 			isset($_POST["description"]) && 
 			isset($_POST["datasheet"]) && 
 			isset($_POST["category"]) && 
+			isset($_POST["package"]) && 
+			isset($_POST["type"]) && 
 			isset($_POST["stock"])) {
 
 			if(isset($_POST["stock_flag"])) {
@@ -197,8 +199,12 @@ switch($view)
 				$stock_flag = 0;
 			}
 
-			$statement = $pdo->prepare("UPDATE components SET storage = ?, Description = ?, datasheet = ?, Category = ?, Stock = ?, stock_flag = ? WHERE ID = ?");
-			$statement->execute(array($_POST["storage"], $_POST["description"], $_POST["datasheet"], $_POST["category"], $_POST["stock"], $stock_flag, $_POST["param1"]));
+			if(empty($_POST["stock"])) {
+				$_POST["stock"] = 0;
+			}
+
+			$statement = $pdo->prepare("UPDATE components SET storage = ?, Description = ?, datasheet = ?, Category = ?, package = ?, Type = ?, Stock = ?, stock_flag = ? WHERE ID = ?");
+			$statement->execute(array($_POST["storage"], $_POST["description"], $_POST["datasheet"], $_POST["category"], $_POST["package"], $_POST["type"], $_POST["stock"], $stock_flag, $_POST["param1"]));
 
 			$param1 = $_POST["param1"];
 		}
@@ -225,6 +231,12 @@ switch($view)
 		echo "Category:<br>";
 		echo "<input type=\"text\" name=\"category\" value=\"".$row['Category']."\" /><br>";
 
+		echo "Package:<br>";
+		echo "<input type=\"text\" name=\"package\" value=\"".$row['package']."\" /><br>";
+
+		echo "Type:<br>";
+		echo "<input type=\"text\" name=\"type\" value=\"".$row['Type']."\" /><br>";
+
 		echo "Stock:<br>";
 		echo "<input type=\"text\" name=\"stock\" value=\"".$row['Stock']."\" /><br>";
 
@@ -243,7 +255,7 @@ switch($view)
 
 
 	case "components":
-		echo "<table><tr><td>ID</td><td>Storage</td><td>Description</td><td>Datasheet</td><td>Category</td><td>Stock</td>";
+		echo "<table><tr><td>ID</td><td>Storage</td><td>Description</td><td>Datasheet</td><td>Category</td><td>Package</td><td>Type</td><td>Stock</td>";
 
 		$sql = "SELECT * FROM components";
 
@@ -260,6 +272,8 @@ switch($view)
 		}
 
 		echo "<td>".$row["Category"]."</td>";
+		echo "<td>".$row["package"]."</td>";
+		echo "<td>".$row["Type"]."</td>";
 
 		if($row["stock_flag"] == 1) {
 			echo "<td>".$row["Stock"]."</td>";
