@@ -73,7 +73,7 @@ echo "View: ".$view."<br/>";
 
 $pdo = new PDO("mysql:host=".$config['dbhost'].";dbname=".$config['dbname'], $config['dbuser'], $config['dbpassword']);
 
-echo "<form action=\"view.php\" method=\"GET\">Suche: <input type=\"text\" name=\"search\" value=\"$search\" /><input type=\"submit\" /><br/>";
+echo "<form action=\"view.php\" method=\"GET\">Suche: <input type=\"text\" name=\"search\" value=\"$search\" /><input type=\"submit\" /></form>";
 
 
 echo "<a href=\"view.php?view=addcomponent\">Add</a> ";
