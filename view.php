@@ -183,6 +183,64 @@ switch($view)
 
 		break;
 
+	case "editcomponent":
+		if(isset($_POST["param1"]) && 
+			isset($_POST["storage"]) && 
+			isset($_POST["description"]) && 
+			isset($_POST["datasheet"]) && 
+			isset($_POST["category"]) && 
+			isset($_POST["stock"])) {
+
+			if(isset($_POST["stock_flag"])) {
+				$stock_flag = 1;
+			} else {
+				$stock_flag = 0;
+			}
+
+			$statement = $pdo->prepare("UPDATE components SET storage = ?, Description = ?, datasheet = ?, Category = ?, Stock = ?, stock_flag = ? WHERE ID = ?");
+			$statement->execute(array($_POST["storage"], $_POST["description"], $_POST["datasheet"], $_POST["category"], $_POST["stock"], $stock_flag, $_POST["param1"]));
+
+			$param1 = $_POST["param1"];
+		}
+
+		$statement = $pdo->prepare("SELECT * FROM components WHERE ID = ?");
+		$statement->execute(array($param1));
+
+		$row = $statement->fetch();
+
+		echo "<form action=\"view.php?view=editcomponent\" method=\"POST\"><br>";
+
+		echo "ID:<br>";
+		echo "<input type=\"text\" name=\"param1\" value=\"".$row['ID']."\" /><br>";
+
+		echo "Storage:<br>";
+		echo "<input type=\"text\" name=\"storage\" value=\"".$row['storage']."\" /><br>";
+
+		echo "Description:<br>";
+		echo "<input type=\"text\" name=\"description\" value=\"".$row['Description']."\" /><br>";
+
+		echo "Datasheet:<br>";
+		echo "<input type=\"text\" name=\"datasheet\" value=\"".$row['datasheet']."\" /><br>";
+
+		echo "Category:<br>";
+		echo "<input type=\"text\" name=\"category\" value=\"".$row['Category']."\" /><br>";
+
+		echo "Stock:<br>";
+		echo "<input type=\"text\" name=\"stock\" value=\"".$row['Stock']."\" /><br>";
+
+		echo "Stock Flag:<br>";
+		if($row['stock_flag']) {
+			echo "<input type=\"checkbox\" name=\"stock_flag\" checked/><br>";
+		} else {
+			echo "<input type=\"checkbox\" name=\"stock_flag\" /><br>";
+		}
+		
+		echo "<input type=\"submit\" /><br/>";
+
+		echo "</form>";
+
+		break;
+
 
 	case "components":
 		echo "<table><tr><td>ID</td><td>Storage</td><td>Description</td><td>Datasheet</td><td>Category</td><td>Stock</td>";
@@ -212,6 +270,8 @@ switch($view)
 			echo "<td></td>";
 			echo "<td></td>";
 		}
+
+		echo "<td><a href=\"view.php?view=editcomponent&param1=".$row["ID"]."\">Edit</a></td>";
 
 		echo "</tr>";
 		}
