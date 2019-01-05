@@ -24,6 +24,14 @@ class MigrateComponentsAndStorageTable extends Migration
             $table->timestamps();
         });
 
+        Schema::table('components', function (Blueprint $table) {
+            $table->string('subcategory')->nullable()->change();
+            $table->string('package')->nullable()->change();
+            $table->string('supplier')->nullable()->change();
+            $table->string('description')->nullable()->change();
+            $table->string('datasheet')->nullable()->change();
+        });
+
         Schema::table('storage', function (Blueprint $table) {
             $table->renameColumn('ID', 'id');
             $table->renameColumn('Name', 'name');
