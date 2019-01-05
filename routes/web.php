@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('', function () {
+    return redirect('components');
 });
+
+Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
+
+Route::get('storages', "StoragesController@index")->middleware('auth');
+Route::get('storages/create', "StoragesController@create")->middleware('auth');
+Route::post('storages', "StoragesController@store")->middleware('auth');
+Route::get('storages/{id}', "StoragesController@show")->middleware('auth');
+Route::put('storages/{id}', "StoragesController@update")->middleware('auth');
+
+Route::post('components/search', "ComponentsController@search")->middleware('auth');
+Route::resource('components', 'ComponentsController')->middleware('auth');
