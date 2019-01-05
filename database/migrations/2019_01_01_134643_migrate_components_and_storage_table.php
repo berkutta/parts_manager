@@ -25,8 +25,11 @@ class MigrateComponentsAndStorageTable extends Migration
         });
 
         Schema::table('components', function (Blueprint $table) {
+            $table->string('name')->change();
             $table->string('subcategory')->nullable()->change();
             $table->string('package')->nullable()->change();
+            $table->string('category')->change();
+            $table->integer('imported_id')->nullable()->change();
             $table->string('supplier')->nullable()->change();
             $table->string('description')->nullable()->change();
             $table->string('datasheet')->nullable()->change();
@@ -52,6 +55,10 @@ class MigrateComponentsAndStorageTable extends Migration
 
         Schema::table('components', function (Blueprint $table) {
             $table->dropColumn('storage');
+        });
+
+        Schema::table('storage', function (Blueprint $table) {
+            $table->string('name')->change();
         });
     }
 
