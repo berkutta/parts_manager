@@ -26,8 +26,8 @@ class MigrateComponentsAndStorageTable extends Migration
         Schema::table('storage', function (Blueprint $table) {
             $table->renameColumn('ID', 'id');
             $table->renameColumn('Name', 'name');
-            //$table->dropTimestamps(['Date']);
-            $table->timestamps();
+            $table->renameColumn('Date', 'created_at');
+            $table->timestamp('updated_at')->nullable();
         });
         
         $components = DB::table('components')->select('id', 'storage_id', 'storage')->get();
@@ -66,7 +66,8 @@ class MigrateComponentsAndStorageTable extends Migration
         Schema::table('storage', function (Blueprint $table) {
             $table->renameColumn('id', 'ID');
             $table->renameColumn('name', 'Name');
-            $table->dropTimestamps();
+            $table->renameColumn('created_at', 'Date');
+            $table->dropColumn('updated_at');
         });
 
         $components = DB::table('components')->select('id', 'storage_id', 'storage')->get();

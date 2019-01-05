@@ -13,7 +13,7 @@
       <td>{{$entry->id}}</td>
       <td>{{$entry->name}}</td>
       <td>{{$entry->components}}</td>
-      <td>{{$entry->Date}}</td>
+      <td>{{$entry->created_at}}</td>
       <td><a href="/storages/{{ $entry->id }}">Edit</a></td>
    </tr>
    @endforeach
