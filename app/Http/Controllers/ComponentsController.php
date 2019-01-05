@@ -43,17 +43,16 @@ class ComponentsController extends Controller
         $entry = new Component;
 
         $entry->storage_id = Storage::where('name', $request->input('storage'))->get()->first()->id;
-        $entry->description = $request->input('description');
-        $entry->type = $request->input('type');
-        $entry->package = $request->input('package');
+        $entry->name = $request->input('name');
+        $entry->datasheet = $request->input('datasheet');
         $entry->category = $request->input('category');
+        $entry->subcategory = $request->input('subcategory');
+        $entry->package = $request->input('package');
+        $entry->supplier = $request->input('supplier');
+        $entry->description = $request->input('description');
         $entry->stock = $request->input('stock');
 
         $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
-
-        $entry->supplier = $request->input('supplier');
-        $entry->text = $request->input('text');
-        $entry->datasheet = $request->input('datasheet');
 
         $entry->save();
 
@@ -108,9 +107,13 @@ class ComponentsController extends Controller
         else
         {
             $entry->storage_id = Storage::where('name', $request->input('storage'))->get()->first()->id;
-            $entry->description = $request->input('description');
+            $entry->name = $request->input('name');
             $entry->datasheet = $request->input('datasheet');
             $entry->category = $request->input('category');
+            $entry->subcategory = $request->input('subcategory');
+            $entry->package = $request->input('package');
+            $entry->supplier = $request->input('supplier');
+            $entry->description = $request->input('description');
             $entry->stock = $request->input('stock');
 
             $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;

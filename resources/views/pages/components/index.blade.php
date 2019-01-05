@@ -6,11 +6,11 @@
       <td></td>
       <td>ID</td>
       <td>Storage</td>
-      <td>Description</td>
+      <td>Name</td>
       <td>Datasheet</td>
       <td>Category</td>
+      <td>Subcategory</td>
       <td>Package</td>
-      <td>Type</td>
       <td>Stock</td>
     </tr>
 
@@ -23,15 +23,15 @@
       <td></td>
       @endif
       <td>{{ $entry->storage['name'] }}</td>
-      <td>{{ $entry->description }}</td>
+      <td>{{ $entry->name }}</td>
       @empty($entry->datasheet)
       <td></td>
       @else
       <td><a href="{{ $entry->datasheet }}">Link</a></td>
       @endempty
       <td>{{ $entry->category }}</td>
+      <td>{{ $entry->subcategory }}</td>
       <td>{{ $entry->package }}</td>
-      <td>{{ $entry->type }}</td>
       <td>{{ $entry->stock }}</td>
       @if ($entry->stock_flag == 1)
       <td>

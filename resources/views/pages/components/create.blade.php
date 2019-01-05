@@ -11,27 +11,27 @@
       <option value="{{ $storage->name }}">{{ $storage->name }}</option>
       @endforeach
    </select> 
-   <br>Description:
+   <br>Name:
    <br>
-   <input type="text" name="description" />
+   <input type="text" name="name" />
    <br>Datasheet:
    <br>
    <input type="text" name="datasheet" />
    <br>Category:
    <br>
    <input type="text" name="category" />
+   <br>Subcategory:
+   <br>
+   <input type="text" name="subcategory" />
    <br>Package:
    <br>
    <input type="text" name="package" />
-   <br>Type:
-   <br>
-   <input type="text" name="type" />
    <br>Supplier:
    <br>
    <input type="text" name="supplier" />
-   <br>Text:
+   <br>Description:
    <br>
-   <input type="text" name="text" />
+   <input type="text" name="description" />
    <br>Stock:
    <br>
    <input type="text" name="stock" />

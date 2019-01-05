@@ -16,10 +16,11 @@ class MigrateComponentsAndStorageTable extends Migration
         Schema::table('components', function (Blueprint $table) {
             $table->renameColumn('ID', 'id');
             $table->integer('storage_id')->after('id')->unsigned();
-            $table->renameColumn('Description', 'description');
-            $table->renameColumn('Type', 'type');
+            $table->renameColumn('Description', 'name');
+            $table->renameColumn('Type', 'subcategory');
             $table->renameColumn('Category', 'category');
             $table->renameColumn('Stock', 'stock');
+            $table->renameColumn('text', 'description');
             $table->timestamps();
         });
 
@@ -56,8 +57,9 @@ class MigrateComponentsAndStorageTable extends Migration
         Schema::table('components', function (Blueprint $table) {
             $table->renameColumn('id', 'ID');
             $table->string('storage')->after('id');
-            $table->renameColumn('description', 'Description');
-            $table->renameColumn('type', 'Type');
+            $table->renameColumn('description', 'text');
+            $table->renameColumn('name', 'Description');
+            $table->renameColumn('subcategory', 'Type');
             $table->renameColumn('category', 'Category');
             $table->renameColumn('stock', 'Stock');
             $table->dropTimestamps();

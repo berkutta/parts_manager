@@ -25,21 +25,27 @@
       @endif
       @endforeach
    </select> 
-   <br>Description:
+   <br>Name:
    <br>
-   <input type="text" name="description" value="{{ $entry->description }}" />
+   <input type="text" name="name" value="{{ $entry->name }}" />
    <br>Datasheet:
    <br>
    <input type="text" name="datasheet" value="{{ $entry->datasheet }}" />
    <br>Category:
    <br>
    <input type="text" name="category" value="{{ $entry->category }}" />
+   <br>Subcategory:
+   <br>
+   <input type="text" name="subcategory" value="{{ $entry->subcategory }}" />
    <br>Package:
    <br>
    <input type="text" name="package" value="{{ $entry->package }}" />
-   <br>Type:
+   <br>Supplier:
    <br>
-   <input type="text" name="type" value="{{ $entry->type }}" />
+   <input type="text" name="supplier" value="{{ $entry->supplier }}" />
+   <br>Description:
+   <br>
+   <input type="text" name="description" value="{{ $entry->description }}" />
    <br>Stock:
    <br>
    <input type="text" name="stock" value="{{ $entry->stock }}" />
