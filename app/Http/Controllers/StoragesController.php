@@ -61,7 +61,11 @@ class StoragesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        app('db')->update("UPDATE storage SET name = ? WHERE ID = ?", [$request->input('name'), $request->input('id')]);
+        $entry = Storage::findOrFail($request->input('id'));
+
+        $entry->name = $request->input('name');
+
+        $entry->save();
 
         return redirect('/storages/'.$request->input('id'));
     }
