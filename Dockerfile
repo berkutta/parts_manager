@@ -3,6 +3,8 @@ MAINTAINER Benjamin Marty
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+RUN apt update && apt install -y git
+
 COPY . /var/www/html/
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
