@@ -12,20 +12,4 @@ class Component extends Model
     {
         return $this->belongsTo('App\Storage');
     }
-
-    public function updateStock($data)
-    {
-        if(preg_match('/\+(.*)/', $data, $output))
-        {
-            $this->stock += $output[1];
-        }
-        else if(preg_match('/\-(.*)/', $data, $output))
-        {
-            $this->stock -= $output[1];
-        }
-        else
-        {
-            $this->stock = $data;
-        }
-    }
 }
