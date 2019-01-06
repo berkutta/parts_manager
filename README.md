@@ -10,7 +10,41 @@ This software is a very simple way to manage your (electronic) parts. It support
 
 You can use this Software with a LAMP Stack, or much easier Docker. For the Docker way you just need to invoke following Docker command:
 ```
-docker run -d -p 80:80 parts_manager
+docker run -v /my/path/.env:/var/www/html/.env -p 80:80 berkutta/parts_manager
+```
+
+The recommended .env config file looks like following, change mysql credentials to our setup:
+```
+APP_KEY=base64:MGrJqE4HL/BZwwDPrxHarRJvJvj6SU1vz1D0oide7i8=
+
+DB_CONNECTION=mysql
+DB_HOST=host
+DB_PORT=3306
+DB_DATABASE=db
+DB_USERNAME=user
+DB_PASSWORD=pass
+```
+
+After the first run it's recommended to generate a new App Key. Enter the Docker Container Bash console for this and execute the following command:
+
+```
+php artisan key:generate
+```
+
+After the first run you also want to create a username in the database. Enter the Docker Container Bash console for this and enter the laravel tinker console:
+```
+php artisan tinker
+```
+
+Execute the following commands within the laravel tinker console. Modify them to your needs.
+
+```
+$user = new App\User();
+$user->username = 'username';
+$user->password = Hash::make('the-password-of-choice');
+$user->name = 'name';
+$user->email = 'the-email@example.com';
+$user->save();
 ```
 
 ## History
