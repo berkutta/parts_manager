@@ -14,4 +14,6 @@ return array(
 
 EOT
 
+php /var/www/html/artisan migrate
+
 exec apache2-foreground "$@"
