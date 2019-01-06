@@ -51,7 +51,7 @@
         <a href="/components">Components</a>
         <a href="/storages">Storage</a>
         <a href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        <form id="logout-form" action="/logout" method="POST">
         @csrf
         </form>
         @endguest
