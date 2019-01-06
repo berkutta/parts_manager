@@ -134,7 +134,7 @@ class ComponentsController extends Controller
     {
         $searchterm = $request->input('search');
 
-        $component_entries = Component::where('description', 'like', "%{$searchterm}%")->get();
+        $component_entries = Component::where('name', 'like', "%{$searchterm}%")->get();
 
         $entries = $component_entries;
 
