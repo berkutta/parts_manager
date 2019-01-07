@@ -4,8 +4,7 @@
 <div class="row">
    @include('pages.sidebar')
    <div class="col-md-9">
-   <button type="button" class="btn btn-success">Create</button>
-   <br>
+   <a class="btn btn-success" href="/components/create" role="button">Create</a>
       <table class="table table-hover">
          <thead>
             <tr>
