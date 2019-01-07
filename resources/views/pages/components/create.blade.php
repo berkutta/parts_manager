@@ -9,58 +9,78 @@
          <div class="card-body">
                <form action="/components" method="POST">
                   @csrf
-                  <div class="form-group">
-                     <label for="id">Storage</label>
-                     <select class="form-control" name="storage">
-                        @foreach ($storages as $storage)
-                        <option value="{{ $storage->name }}">{{ $storage->name }}</option>
-                        @endforeach
-                     </select> 
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Storage</label>
+                     <div class="col-sm-10">
+                        <select class="form-control" name="storage">
+                           @foreach ($storages as $storage)
+                           <option value="{{ $storage->name }}">{{ $storage->name }}</option>
+                           @endforeach
+                        </select>
+                     </div>
                   </div>
 
-                  <div class="form-group">
-                     <label for="id">Name</label>
-                     <input type="text" class="form-control" name="name" />
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Name</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="name" />
+                     </div>
                   </div>
 
-                  <div class="form-group">
-                     <label for="id">Datasheet</label>
-                     <input type="text" class="form-control" name="datasheet" />
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Datasheet</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="datasheet" />
+                     </div>
                   </div>
 
-                  <div class="form-group">
-                     <label for="id">Category</label>
-                     <input type="text" class="form-control" name="category" />
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Category</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="category" />
+                     </div>
                   </div>
 
-                  <div class="form-group">
-                     <label for="id">Subcategory</label>
-                     <input type="text" class="form-control" name="subcategory" />
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Subcategory</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="subcategory" />
+                     </div>
                   </div>
 
-                  <div class="form-group">
-                     <label for="id">Package</label>
-                     <input type="text" class="form-control" name="package" />
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Package</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="package" />
+                     </div>
                   </div>
 
-                  <div class="form-group">
-                     <label for="id">Supplier</label>
-                     <input type="text" class="form-control" name="supplier" />
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Supplier</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="supplier" />
+                     </div>
                   </div>
 
-                  <div class="form-group">
-                     <label for="id">Description</label>
-                     <input type="text" class="form-control" name="description" />
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Description</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="description" />
+                     </div>
                   </div>
 
-                   <div class="form-group">
-                     <label for="id">Tags</label>
-                     <input type="text" class="form-control" name="tags" />
+                   <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Tags</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="tags" />
+                     </div>
                   </div>
  
-                  <div class="form-group">
-                     <label for="id">Stock</label>
-                     <input type="text" class="form-control" name="stock" />
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Stock</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="stock" />
+                     </div>
                   </div>
 
                   <div class="form-check">
