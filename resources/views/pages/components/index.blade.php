@@ -4,6 +4,8 @@
 <div class="row">
    @include('pages.sidebar')
    <div class="col-md-9">
+   <button type="button" class="btn btn-success">Create</button>
+   <br>
       <table class="table table-hover">
          <thead>
             <tr>
@@ -42,7 +44,10 @@
                <td>{{ $entry->category }}</td>
                <td>{{ $entry->subcategory }}</td>
                <td>{{ $entry->package }}</td>
-               <td>{{ $entry->tags()->pluck('slug')->implode(',') }}</td>
+               <td>
+               @foreach ($entry->tags as $tag)
+                  <span class="badge badge-primary">{{ $tag->slug }}</span>
+               @endforeach
                <td>{{ $entry->stock }}</td>
                @if ($entry->stock_flag == 1)
                <td>
