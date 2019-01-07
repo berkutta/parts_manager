@@ -12,6 +12,10 @@
       @endif
 
       <div class="card">
+         <div class="card-header">
+            Show Component
+         </div>
+
          <div class="card-body">
                <form action="/components/{{ $entry->id }}" method="POST">
                   @csrf

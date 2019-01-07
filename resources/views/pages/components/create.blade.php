@@ -6,6 +6,10 @@
    @include('pages.sidebar')
    <div class="col-md-9">
       <div class="card">
+         <div class="card-header">
+            Create Component
+         </div>
+
          <div class="card-body">
                <form action="/components" method="POST">
                   @csrf
