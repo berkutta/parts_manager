@@ -32,6 +32,9 @@
    <br>Description:
    <br>
    <input type="text" name="description" />
+   <br>Tags:
+   <br>
+   <input type="text" name="tags" />
    <br>Stock:
    <br>
    <input type="text" name="stock" />

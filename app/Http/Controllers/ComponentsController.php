@@ -51,8 +51,11 @@ class ComponentsController extends Controller
         $entry->supplier = $request->input('supplier');
         $entry->description = $request->input('description');
         $entry->stock = $request->input('stock');
-
         $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
+
+        $entry->save();
+
+        $entry->syncTags(explode(',', $request->input('tags')));
 
         $entry->save();
 
@@ -115,6 +118,8 @@ class ComponentsController extends Controller
             $entry->supplier = $request->input('supplier');
             $entry->description = $request->input('description');
             $entry->stock = $request->input('stock');
+
+            $entry->syncTags(explode(',', $request->input('tags')));
 
             $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
         }

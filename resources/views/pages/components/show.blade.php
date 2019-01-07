@@ -46,6 +46,9 @@
    <br>Description:
    <br>
    <input type="text" name="description" value="{{ $entry->description }}" />
+   <br>Tags:
+   <br>
+   <input type="text" name="tags" value="{{ implode(',', $entry->tags()->pluck('slug')->toArray()) }}" />
    <br>Stock:
    <br>
    <input type="text" name="stock" value="{{ $entry->stock }}" />
