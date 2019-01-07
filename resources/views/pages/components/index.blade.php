@@ -33,7 +33,7 @@
       <td>{{ $entry->category }}</td>
       <td>{{ $entry->subcategory }}</td>
       <td>{{ $entry->package }}</td>
-      <td>{{ implode(',', $entry->tags()->pluck('slug')->toArray()) }}</td>
+      <td>{{ $entry->tags()->pluck('slug')->implode(',') }}</td>
       <td>{{ $entry->stock }}</td>
       @if ($entry->stock_flag == 1)
       <td>
