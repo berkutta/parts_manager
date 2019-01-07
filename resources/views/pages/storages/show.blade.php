@@ -5,14 +5,18 @@
   <div class="card-body">
       <form action="/storages" method="POST">
          @csrf
-         <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" name="id" value="{{ $entry->id }}" readonly/>
+         <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="id">ID</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" name="id" value="{{ $entry->id }}" readonly/>
+            </div>
          </div>
 
-         <div class="form-group">
-            <label for="id">Name</label>
-            <input type="text" class="form-control" name="name" value="{{ $entry->name }}" />
+         <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="id">Name</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control" name="name" value="{{ $entry->name }}" />
+            </div>
          </div>
          
          <input type="hidden" name="_method" value="put" />
