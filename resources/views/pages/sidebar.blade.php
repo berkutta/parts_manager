@@ -7,12 +7,12 @@
         <div class="card-body">
             <ul class="nav nav-pills flex-column" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" href="{{ url('/components') }}">
+                    <a class="nav-link {{{ (Request::is('components') ? 'active' : '') }}}" href="{{ url('/components') }}">
                         Components
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="{{ url('/storages') }}">
+                    <a class="nav-link {{{ (Request::is('storages') ? 'active' : '') }}}" href="{{ url('/storages') }}">
                         Storages
                     </a>
                 </li>
