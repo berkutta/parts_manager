@@ -2,47 +2,74 @@
 
 @section('content')
 
-<form action="/components" method="POST">
-   @csrf
-   <br>Storage:
-   <br>
-   <select name="storage">
-      @foreach ($storages as $storage)
-      <option value="{{ $storage->name }}">{{ $storage->name }}</option>
-      @endforeach
-   </select> 
-   <br>Name:
-   <br>
-   <input type="text" name="name" />
-   <br>Datasheet:
-   <br>
-   <input type="text" name="datasheet" />
-   <br>Category:
-   <br>
-   <input type="text" name="category" />
-   <br>Subcategory:
-   <br>
-   <input type="text" name="subcategory" />
-   <br>Package:
-   <br>
-   <input type="text" name="package" />
-   <br>Supplier:
-   <br>
-   <input type="text" name="supplier" />
-   <br>Description:
-   <br>
-   <input type="text" name="description" />
-   <br>Tags:
-   <br>
-   <input type="text" name="tags" />
-   <br>Stock:
-   <br>
-   <input type="text" name="stock" />
-   <br>Stock Flag:
-   <br>
-   <input type="checkbox" name="stock_flag" />
-   <br>
-   <input type="submit" />
-   <br/>
-</form>
+<div class="card">
+  <div class="card-body">
+      <form action="/components" method="POST">
+         @csrf
+         <div class="form-group">
+            <label for="id">Storage</label>
+            <select class="form-control" name="storage">
+               @foreach ($storages as $storage)
+               <option value="{{ $storage->name }}">{{ $storage->name }}</option>
+               @endforeach
+            </select> 
+         </div>
+
+         <div class="form-group">
+            <label for="id">Name</label>
+            <input type="text" class="form-control" name="name" />
+         </div>
+
+         <div class="form-group">
+            <label for="id">Datasheet</label>
+            <input type="text" class="form-control" name="datasheet" />
+         </div>
+
+         <div class="form-group">
+            <label for="id">Category</label>
+            <input type="text" class="form-control" name="category" />
+         </div>
+
+         <div class="form-group">
+            <label for="id">Subcategory</label>
+            <input type="text" class="form-control" name="subcategory" />
+         </div>
+
+         <div class="form-group">
+            <label for="id">Package</label>
+            <input type="text" class="form-control" name="package" />
+         </div>
+
+         <div class="form-group">
+            <label for="id">Supplier</label>
+            <input type="text" class="form-control" name="supplier" />
+         </div>
+
+         <div class="form-group">
+            <label for="id">Description</label>
+            <input type="text" class="form-control" name="description" />
+         </div>
+
+         <div class="form-group">
+            <label for="id">Tags</label>
+            <input type="text" class="form-control" name="tags" />
+         </div>
+
+         <div class="form-group">
+            <label for="id">Stock</label>
+            <input type="text" class="form-control" name="stock" />
+         </div>
+
+         <div class="form-check">
+            <input class="form-check-input" type="checkbox" class="form-control" name="stock_flag" checked/>
+            <label class="form-check-label">
+               Stock Flag
+            </label>
+         </div>
+
+         <input class="btn btn-primary" type="submit" />
+         <br/>
+      </form>
+  </div>
+</div>
 @endsection
