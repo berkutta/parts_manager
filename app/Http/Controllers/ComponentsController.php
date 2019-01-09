@@ -158,6 +158,10 @@ class ComponentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $entry = Component::findOrFail($id);
+
+        $entry->delete();
+
+        return redirect('/components');
     }
 }
