@@ -23,5 +23,5 @@ Route::post('storages', "StoragesController@store")->middleware('auth');
 Route::get('storages/{id}', "StoragesController@show")->middleware('auth');
 Route::put('storages/{id}', "StoragesController@update")->middleware('auth');
 
-Route::post('components/search', "ComponentsController@search")->middleware('auth');
+Route::get('components/search', "ComponentsController@search")->middleware('auth');
 Route::resource('components', 'ComponentsController')->middleware('auth');
