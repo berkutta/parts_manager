@@ -9,7 +9,6 @@
       <table class="table table-hover">
          <thead>
             <tr>
-               <th scope="col">ID</th>
                <th scope="col">Name</th>
                <th scope="col">Usage</th>
                <th scope="col">Date</th>
@@ -20,7 +19,6 @@
          <tbody>
             @foreach ($entries as $entry)
             <tr>
-               <th scope="row">{{$entry->id}}</td>
                <td>{{$entry->name}}</td>
                <td>{{$entry->components}}</td>
                <td>{{$entry->created_at}}</td>

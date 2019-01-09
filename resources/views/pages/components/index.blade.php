@@ -8,7 +8,6 @@
       <table class="table table-hover">
          <thead>
             <tr>
-               <th scope="col">ID</th>
                <th scope="col"></th>
                <th scope="col">Storage</th>
                <th scope="col">Name</th>
@@ -28,7 +27,6 @@
          <tbody>
             @foreach ($entries as $entry)
             <tr>
-               <th scope="row">{{ $entry->id }}</th>
                @if (file_exists("preview/part_".$entry->id.".jpg"))
                <td><img src="/preview/part_{{ $entry->id }}.jpg" height="42"></td>
                @else
