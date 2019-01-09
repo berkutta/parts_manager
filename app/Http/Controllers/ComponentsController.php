@@ -15,7 +15,7 @@ class ComponentsController extends Controller
      */
     public function index()
     {
-        $entries = Component::all();
+        $entries = Component::paginate(15);
 
         return view('pages/components/index', ['entries' => $entries]);
     }
@@ -143,9 +143,7 @@ class ComponentsController extends Controller
     {
         $searchterm = $request->input('search');
 
-        $component_entries = Component::where('name', 'like', "%{$searchterm}%")->get();
-
-        $entries = $component_entries;
+        $entries = Component::where('name', 'like', "%{$searchterm}%")->paginate(15);
 
         return view('pages/components/index', ['entries' => $entries]);
     }

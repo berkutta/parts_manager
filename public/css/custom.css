@@ -8,3 +8,6 @@ body {
 .create-btn {
   margin-bottom: 1rem;
 }
+.pagination {
+  justify-content: center;
+}

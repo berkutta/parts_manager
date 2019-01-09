@@ -85,6 +85,10 @@
             @endforeach
          </tbody> 
       </table>
+
+      <div class="text-xs-center">
+         {!! $entries->appends(request()->except('page'))->links() !!}
+      </div>
    </div>
 </div>
 @endsection
