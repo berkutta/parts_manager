@@ -82,4 +82,19 @@ class StoragesController extends Controller
 
         return view('/pages/storages/show', ['entry' => $entry]);
     }
+    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $entry = Storage::findOrFail($id);
+
+        $entry->delete();
+
+        return redirect('/storages');
+    }
 }

@@ -14,6 +14,7 @@
                <th scope="col">Usage</th>
                <th scope="col">Date</th>
                <th scope="col"></th>
+               <th scope="col"></th>
             </tr>
          </thead>
          <tbody>
@@ -24,6 +25,14 @@
                <td>{{$entry->components}}</td>
                <td>{{$entry->created_at}}</td>
                <td><a class="btn btn-primary" href="/storages/{{ $entry->id }}">Edit</a></td>
+               <td>
+                  <form onsubmit="return confirm('Do you really want to delete {{ $entry->name }} with its {{ $entry->components }} components?');" action="/storages/{{ $entry->id }}" method="POST">
+                     @csrf
+                     <input type="hidden" name="_method" value="delete" />
+                     <input class="btn btn-danger" type="submit" value="Delete" />
+                     <br/>
+                  </form>
+               </td>
             </tr>
             @endforeach
          </tbody>
