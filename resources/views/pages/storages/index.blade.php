@@ -6,7 +6,7 @@
    @include('pages.sidebar')
    <div class="col-md-9">
       <a class="btn btn-success create-btn" href="/storages/create" role="button">Create</a>
-      <div class="table-responsive">
+      <div class="table-responsive-md">
       <table class="table table-hover">
          <thead>
             <tr>
