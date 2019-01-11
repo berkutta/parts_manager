@@ -16,4 +16,6 @@ EOT
 
 php /var/www/html/artisan migrate --force
 
+chown -R www-data:www-data /var/www/html
+
 exec apache2-foreground "$@"
