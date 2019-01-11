@@ -48,7 +48,7 @@
                @endforeach
                <td>{{ $entry->stock }}</td>
                @if ($entry->stock_flag == 1)
-               <td>
+               <td class="control-element">
                   <form action="/components/{{ $entry->id }}" method="POST">
                      @csrf
                      <input type="hidden" name="stock" value="+1" />
@@ -57,7 +57,7 @@
                      <br/>
                   </form>
                </td>
-               <td>
+               <td class="control-element">
                   <form action="/components/{{ $entry->id }}" method="POST">
                      @csrf
                      <input type="hidden" name="stock" value="-1" />
@@ -70,12 +70,12 @@
                <td></td>
                <td></td>
                @endif
-               <td><a class="btn btn-primary" href="/components/{{ $entry->id }}">Edit</a></td>
-               <td>
+               <td class="control-element"><a class="btn btn-primary" href="/components/{{ $entry->id }}"><i class="fas fa-edit"></a></td>
+               <td class="control-element">
                   <form onsubmit="return confirm('Do you really want to delete {{ $entry->name }}?');" action="/components/{{ $entry->id }}" method="POST">
                      @csrf
                      <input type="hidden" name="_method" value="delete" />
-                     <input class="btn btn-danger" type="submit" value="Delete" />
+                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                      <br/>
                   </form>
                </td>
