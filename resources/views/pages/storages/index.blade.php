@@ -23,12 +23,12 @@
                <td>{{$entry->name}}</td>
                <td>{{$entry->components}}</td>
                <td>{{$entry->created_at}}</td>
-               <td><a class="btn btn-primary" href="/storages/{{ $entry->id }}">Edit</a></td>
+                  <td><a class="btn btn-primary" href="/storages/{{ $entry->id }}"><i class="fas fa-edit"></i></a></td>
                <td>
                   <form onsubmit="return confirm('Do you really want to delete {{ $entry->name }} with its {{ $entry->components }} components?');" action="/storages/{{ $entry->id }}" method="POST">
                      @csrf
                      <input type="hidden" name="_method" value="delete" />
-                     <input class="btn btn-danger" type="submit" value="Delete" />
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                      <br/>
                   </form>
                </td>
