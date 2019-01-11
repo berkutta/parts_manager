@@ -61,7 +61,7 @@ class StoragesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $entry = Storage::findOrFail($request->input('id'));
+        $entry = Storage::findOrFail($id);
 
         $entry->name = $request->input('name');
 

@@ -10,7 +10,7 @@
          </div>
 
          <div class="card-body">
-               <form action="/storages" method="POST">
+               <form action="/storages/{{ $entry->id }}" method="POST">
                   @csrf
                   <div class="form-group row">
                      <label class="col-sm-2 col-form-label" for="id">ID</label>
