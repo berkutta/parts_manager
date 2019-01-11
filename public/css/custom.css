@@ -11,6 +11,9 @@ body {
 .pagination {
   justify-content: center;
 }
+.sidebar {
+  margin-bottom: 1rem;
+}
 .control-element {
   padding-left: 0.25rem !important;
   padding-right: 0.25rem !important;
