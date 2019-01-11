@@ -5,6 +5,7 @@
    @include('pages.sidebar')
    <div class="col-md-9">
    <a class="btn btn-success create-btn" href="/components/create" role="button">Create</a>
+      <div class="table-responsive">
       <table class="table table-hover">
          <thead>
             <tr>
@@ -83,6 +84,7 @@
             @endforeach
          </tbody> 
       </table>
+      </div>
 
       <div class="text-xs-center">
          {!! $entries->appends(request()->except('page'))->links() !!}
