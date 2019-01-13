@@ -60,9 +60,7 @@ class StoragesController extends Controller
      */
     public function show($id)
     {
-        $entry = Storage::find($id);
 
-        return view('/pages/storages/show', ['entry' => $entry]);
     }
 
     /**
@@ -73,7 +71,9 @@ class StoragesController extends Controller
      */
     public function edit($id)
     {
+        $entry = Storage::find($id);
         
+        return view('/pages/storages/show', ['entry' => $entry]);     
     }
 
     /**

@@ -71,7 +71,7 @@
                <td></td>
                <td></td>
                @endif
-               <td class="control-element"><a class="btn btn-primary" href="/components/{{ $entry->id }}"><i class="fas fa-edit"></a></td>
+                  <td class="control-element"><a class="btn btn-primary" href="/components/{{ $entry->id }}/edit"><i class="fas fa-edit"></i></a></td>
                <td class="control-element">
                   <form onsubmit="return confirm('Do you really want to delete {{ $entry->name }}?');" action="/components/{{ $entry->id }}" method="POST">
                      @csrf

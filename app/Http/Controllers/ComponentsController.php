@@ -65,11 +65,7 @@ class ComponentsController extends Controller
      */
     public function show($id)
     {
-        $entry = Component::find($id);
 
-        $storages = Storage::all();
-
-        return view('/pages/components/show', ['entry' => $entry, 'storages' => $storages]);
     }
     
     /**
@@ -80,7 +76,11 @@ class ComponentsController extends Controller
      */
     public function edit($id)
     {
+        $entry = Component::find($id);
+
+        $storages = Storage::all();
         
+        return view('/pages/components/show', ['entry' => $entry, 'storages' => $storages]);     
     }
  
     /**
