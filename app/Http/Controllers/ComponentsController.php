@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Component;
 use App\Storage;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Components;
 
 class ComponentsController extends Controller
 {
@@ -38,7 +38,7 @@ class ComponentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Components $request)
     {
         $entry = new Component;
 
@@ -97,7 +97,7 @@ class ComponentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Components $request, $id)
     {
         $entry = Component::findOrFail($id);
 
@@ -139,7 +139,7 @@ class ComponentsController extends Controller
      * @param  string $searchterm
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request)
+    public function search(Components $request)
     {
         $searchterm = $request->input('search');
 

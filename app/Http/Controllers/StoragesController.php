@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Component;
 use App\Storage;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Storages;
 
 class StoragesController extends Controller
 {
@@ -41,7 +41,7 @@ class StoragesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Storages $request)
     {
         $entry = new Storage;
 
@@ -83,7 +83,7 @@ class StoragesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Storages $request, $id)
     {
         $entry = Storage::findOrFail($id);
 
