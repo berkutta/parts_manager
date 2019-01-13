@@ -15,7 +15,7 @@ class StoragesController extends Controller
      */
     public function index()
     {
-        $entries = Storage::all();
+        $entries = Storage::paginate(15);
 
         foreach($entries as $entry)
         {
