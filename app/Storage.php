@@ -8,6 +8,7 @@ use Auth;
 class Storage extends Model
 {
     protected $table = 'storage';
+    protected $fillable = ['name'];
 
     public function components()
     {

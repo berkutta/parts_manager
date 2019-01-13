@@ -8,6 +8,7 @@ use Auth;
 class Component extends Model
 {
     protected $table = 'components';
+    protected $fillable = ['name', 'datasheet', 'category', 'subcategory', 'package', 'supplier', 'description', 'stock'];
 
     use \Spatie\Tags\HasTags;
 

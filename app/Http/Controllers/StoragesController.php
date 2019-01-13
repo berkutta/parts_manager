@@ -45,7 +45,7 @@ class StoragesController extends Controller
     {
         $entry = new Storage;
 
-        $entry->name = $request->input('name');
+        $entry->fill($request->all());
 
         $entry->save();
 
@@ -87,7 +87,7 @@ class StoragesController extends Controller
     {
         $entry = Storage::findOrFail($id);
 
-        $entry->name = $request->input('name');
+        $entry->fill($request->all());
 
         $entry->save();
 

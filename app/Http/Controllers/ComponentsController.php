@@ -42,15 +42,8 @@ class ComponentsController extends Controller
     {
         $entry = new Component;
 
+        $entry->fill($request->all());
         $entry->storage_id = Storage::where('name', $request->input('storage'))->get()->first()->id;
-        $entry->name = $request->input('name');
-        $entry->datasheet = $request->input('datasheet');
-        $entry->category = $request->input('category');
-        $entry->subcategory = $request->input('subcategory');
-        $entry->package = $request->input('package');
-        $entry->supplier = $request->input('supplier');
-        $entry->description = $request->input('description');
-        $entry->stock = $request->input('stock');
         $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
 
         $entry->save();
@@ -111,21 +104,14 @@ class ComponentsController extends Controller
         }
         else
         {
+            $entry->fill($request->all());
             $entry->storage_id = Storage::where('name', $request->input('storage'))->get()->first()->id;
-            $entry->name = $request->input('name');
-            $entry->datasheet = $request->input('datasheet');
-            $entry->category = $request->input('category');
-            $entry->subcategory = $request->input('subcategory');
-            $entry->package = $request->input('package');
-            $entry->supplier = $request->input('supplier');
-            $entry->description = $request->input('description');
-            $entry->stock = $request->input('stock');
+            $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
+
             
             if(!empty($request->input('tags'))) {
                 $entry->syncTags(explode(',', $request->input('tags')));
             }
-            
-            $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
         }
 
         $entry->save();
