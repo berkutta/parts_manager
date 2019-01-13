@@ -53,6 +53,30 @@ class StoragesController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $entry = Storage::find($id);
+
+        return view('/pages/storages/show', ['entry' => $entry]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -68,19 +92,6 @@ class StoragesController extends Controller
         $entry->save();
 
         return redirect('/storages/'.$request->input('id'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $entry = Storage::find($id);
-
-        return view('/pages/storages/show', ['entry' => $entry]);
     }
     
     /**

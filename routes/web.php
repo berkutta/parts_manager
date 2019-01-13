@@ -17,12 +17,7 @@ Route::get('', function () {
 
 Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 
-Route::get('storages', "StoragesController@index")->middleware('auth');
-Route::get('storages/create', "StoragesController@create")->middleware('auth');
-Route::post('storages', "StoragesController@store")->middleware('auth');
-Route::get('storages/{id}', "StoragesController@show")->middleware('auth');
-Route::put('storages/{id}', "StoragesController@update")->middleware('auth');
-Route::delete('storages/{id}', "StoragesController@destroy")->middleware('auth');
+Route::resource('storages', 'StoragesController')->middleware('auth');
 
 Route::get('components/search', "ComponentsController@search")->middleware('auth');
 Route::resource('components', 'ComponentsController')->middleware('auth');
