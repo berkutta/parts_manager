@@ -91,7 +91,7 @@ class StoragesController extends Controller
 
         $entry->save();
 
-        return redirect('/storages/'.$request->input('id'));
+        return redirect('/storages/'.$id.'/edit');
     }
     
     /**
