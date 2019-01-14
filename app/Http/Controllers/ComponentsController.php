@@ -96,14 +96,17 @@ class ComponentsController extends Controller
 
         if(preg_match('/\+(.*)/', $request->input('stock'), $output))
         {
+            $redirect_to_index = true;
             $entry->stock += $output[1];
         }
         else if(preg_match('/\-(.*)/', $request->input('stock'), $output))
         {
+            $redirect_to_index = true;
             $entry->stock -= $output[1];
         }
         else
         {
+            $redirect_to_index = false;
             $entry->fill($request->all());
             $entry->storage_id = Storage::where('name', $request->input('storage'))->get()->first()->id;
             $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
@@ -116,7 +119,11 @@ class ComponentsController extends Controller
 
         $entry->save();
 
-        return redirect('/components/'.$request->input('id'));
+        if($redirect_to_index === true) {
+            return redirect('/components');
+        } else {
+            return redirect('/components/'.$id.'/edit');
+        }
     }
 
     /**
