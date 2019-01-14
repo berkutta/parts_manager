@@ -41,7 +41,6 @@ class Components extends FormRequest
             case 'PATCH':
             {
                 return [
-                    'name' => 'required',
                     'stock' => 'required',
                 ];
             }
