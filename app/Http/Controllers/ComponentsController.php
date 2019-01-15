@@ -80,7 +80,11 @@ class ComponentsController extends Controller
 
         $storages = Storage::all();
         
-        return view('/pages/components/show', ['entry' => $entry, 'storages' => $storages]);     
+        $keys = Component::all()->map(function($item) {
+            return array_keys($item->extra_attributes->all());
+        })->flatten()->unique();
+
+        return view('/pages/components/show', ['entry' => $entry, 'storages' => $storages, 'keys' => $keys]);     
     }
  
     /**
