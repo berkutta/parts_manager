@@ -7,7 +7,7 @@ RUN apt update && apt install -y git
 
 COPY . /var/www/html/
 
-RUN sed -i -e "s/<span class=\"text-muted\"><\/span>/<span class=\"text-muted\">Build #$(git rev-parse --short HEAD)<\/span>/g" /var/www/html/resources/views/layouts/app.blade.php
+RUN echo $(git rev-parse --short HEAD) > /tmp/commit.txt
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 

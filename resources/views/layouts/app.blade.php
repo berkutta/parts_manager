@@ -70,6 +70,13 @@
            @yield('content')
         </main><!-- /.container -->
 
+        @if (file_exists('/tmp/commit.txt'))
+        <footer class="footer mt-auto py-3">
+            <div class="container text-center">
+                <span class="text-muted">Build #{{ file_get_contents('/tmp/commit.txt') }}</span>
+            </div>
+        </footer>
+        @endif
     </body>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
