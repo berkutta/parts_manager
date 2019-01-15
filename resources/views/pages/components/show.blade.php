@@ -48,39 +48,10 @@
                      </div>
                   </div>
 
-
-                  <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="id">Datasheet</label>
-                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="datasheet" value="{{ $entry->datasheet }}" />
-                     </div>
-                  </div>
-
                   <div class="form-group row">
                      <label class="col-sm-2 col-form-label" for="id">Category</label>
                      <div class="col-sm-10">
                         <input type="text" class="form-control" name="category" value="{{ $entry->category }}" />
-                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="id">Subcategory</label>
-                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="subcategory" value="{{ $entry->subcategory }}" />
-                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="id">Package</label>
-                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="package" value="{{ $entry->package }}" />
-                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="id">Supplier</label>
-                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="supplier" value="{{ $entry->supplier }}" />
                      </div>
                   </div>
 
@@ -115,6 +86,42 @@
                         Stock Flag
                      </label>
                   </div>
+
+                  <div class="form-group row">
+                     <label class="col-sm-2 col-form-label" for="id">Attributes</label>
+                     <div class="col-sm-10">
+                        <table class="table">
+                           <thead>
+                              <tr>
+                                 <th scope="col">Key</th>
+                                 <th scope="col">Value</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              @foreach ($entry->extra_attributes->all() as $key => $attribute)
+                              <tr>
+                                 <td><input type="text" class="form-control" name="key[]" list="keys" value="{{ $key }}" /></td>
+                                 <td><input type="text" class="form-control" name="attribute[]" value="{{ $attribute }}" /></td>
+                              </tr>
+                              @endforeach
+                              <tr>
+                                 <td><input type="text" class="form-control" name="key[]" list="keys" /></td>
+                                 <td><input type="text" class="form-control" name="attribute[]" /></td>
+                              </tr>
+                              <tr>
+                                 <td><input type="text" class="form-control" name="key[]" list="keys" /></td>
+                                 <td><input type="text" class="form-control" name="attribute[]" /></td>
+                              </tr>
+                           </tbody>                     
+                        </table>
+                     </div>
+                  </div>
+
+                  <datalist id="keys">
+                     @foreach($keys as $key)
+                     <option value="{{ $key }}">
+                     @endforeach
+                  </datalist>
 
                   <input type="hidden" name="_method" value="put" />
                   <input class="btn btn-primary" type="submit" />

@@ -35,14 +35,14 @@
                @endif
                <td>{{ $entry->storage['name'] }}</td>
                <td>{{ $entry->name }}</td>
-               @empty($entry->datasheet)
+               @empty($entry->extra_attributes['datasheet'])
                <td></td>
                @else
-               <td><a class="btn btn-primary" href="{{ $entry->datasheet }}">Link</a></td>
+               <td><a class="btn btn-primary" href="{{ $entry->extra_attributes['datasheet'] }}">Link</a></td>
                @endempty
                <td>{{ $entry->category }}</td>
-               <td>{{ $entry->subcategory }}</td>
-               <td>{{ $entry->package }}</td>
+               <td>{{ $entry->extra_attributes['subcategory'] }}</td>
+               <td>{{ $entry->extra_attributes['package'] }}</td>
                <td>
                @foreach ($entry->tags as $tag)
                   <span class="badge badge-primary">{{ $tag->slug }}</span>

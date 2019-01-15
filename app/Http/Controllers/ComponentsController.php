@@ -115,6 +115,13 @@ class ComponentsController extends Controller
             if(!empty($request->input('tags'))) {
                 $entry->syncTags(explode(',', $request->input('tags')));
             }
+
+            $entry->extra_attributes = [];
+            foreach(array_combine($request->input('key'), $request->input('attribute')) as $key => $attribute) {
+                if(!empty($key)) {
+                    $entry->extra_attributes[$key] = $attribute;
+                }
+            }
         }
 
         $entry->save();

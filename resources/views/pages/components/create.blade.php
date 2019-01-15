@@ -32,37 +32,9 @@
                   </div>
 
                   <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="id">Datasheet</label>
-                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="datasheet" />
-                     </div>
-                  </div>
-
-                  <div class="form-group row">
                      <label class="col-sm-2 col-form-label" for="id">Category</label>
                      <div class="col-sm-10">
                         <input type="text" class="form-control" name="category" />
-                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="id">Subcategory</label>
-                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="subcategory" />
-                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="id">Package</label>
-                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="package" />
-                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="id">Supplier</label>
-                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="supplier" />
                      </div>
                   </div>
 
