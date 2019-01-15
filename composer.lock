@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7589393ca682dc2ab6e06cbdf4a4de17",
+    "content-hash": "55631610f47e295e9d8df8994a917c32",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -545,16 +545,16 @@
         },
         {
             "name": "fideloper/proxy",
-            "version": "4.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fideloper/TrustedProxy.git",
-                "reference": "cf8a0ca4b85659b9557e206c90110a6a4dba980a"
+                "reference": "177c79a2d1f9970f89ee2fb4c12b429af38b6dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/cf8a0ca4b85659b9557e206c90110a6a4dba980a",
-                "reference": "cf8a0ca4b85659b9557e206c90110a6a4dba980a",
+                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/177c79a2d1f9970f89ee2fb4c12b429af38b6dfb",
+                "reference": "177c79a2d1f9970f89ee2fb4c12b429af38b6dfb",
                 "shasum": ""
             },
             "require": {
@@ -595,7 +595,7 @@
                 "proxy",
                 "trusted proxy"
             ],
-            "time": "2018-02-07T20:20:57+00:00"
+            "time": "2019-01-10T14:06:47+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -870,16 +870,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.7.19",
+            "version": "v5.7.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5c1d1ec7e8563ea31826fd5eb3f6791acf01160c"
+                "reference": "25f74458a242b61cc9e9c09d31f94fb13ed805f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5c1d1ec7e8563ea31826fd5eb3f6791acf01160c",
-                "reference": "5c1d1ec7e8563ea31826fd5eb3f6791acf01160c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/25f74458a242b61cc9e9c09d31f94fb13ed805f3",
+                "reference": "25f74458a242b61cc9e9c09d31f94fb13ed805f3",
                 "shasum": ""
             },
             "require": {
@@ -953,7 +953,7 @@
                 "moontoast/math": "^1.1",
                 "orchestra/testbench-core": "3.7.*",
                 "pda/pheanstalk": "^3.0",
-                "phpunit/phpunit": "^7.0",
+                "phpunit/phpunit": "^7.5",
                 "predis/predis": "^1.1.1",
                 "symfony/css-selector": "^4.1",
                 "symfony/dom-crawler": "^4.1",
@@ -1012,7 +1012,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-12-18T14:00:38+00:00"
+            "time": "2019-01-15T15:20:32+00:00"
         },
         {
             "name": "laravel/nexmo-notification-channel",
@@ -1519,16 +1519,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.1.1",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "8aae5b59b83bb4d0dbf07b0a835f2680a658f610"
+                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8aae5b59b83bb4d0dbf07b0a835f2680a658f610",
-                "reference": "8aae5b59b83bb4d0dbf07b0a835f2680a658f610",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
+                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
                 "shasum": ""
             },
             "require": {
@@ -1544,7 +1544,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -1566,20 +1566,20 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-12-26T11:32:39+00:00"
+            "time": "2019-01-12T16:31:37+00:00"
         },
         {
             "name": "opis/closure",
-            "version": "3.1.2",
+            "version": "3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "de00c69a2328d3ee5baa71fc584dc643222a574c"
+                "reference": "41f5da65d75cf473e5ee582df8fc7f2c733ce9d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/de00c69a2328d3ee5baa71fc584dc643222a574c",
-                "reference": "de00c69a2328d3ee5baa71fc584dc643222a574c",
+                "url": "https://api.github.com/repos/opis/closure/zipball/41f5da65d75cf473e5ee582df8fc7f2c733ce9d6",
+                "reference": "41f5da65d75cf473e5ee582df8fc7f2c733ce9d6",
                 "shasum": ""
             },
             "require": {
@@ -1592,7 +1592,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "3.1.x-dev"
                 }
             },
             "autoload": {
@@ -1627,7 +1627,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2018-12-16T21:48:23+00:00"
+            "time": "2019-01-14T14:45:33+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2279,6 +2279,63 @@
                 "sortable"
             ],
             "time": "2018-08-24T09:36:35+00:00"
+        },
+        {
+            "name": "spatie/laravel-schemaless-attributes",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-schemaless-attributes.git",
+                "reference": "8434161116fdac36e6e02dc8abf16ec6e4ee9d1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-schemaless-attributes/zipball/8434161116fdac36e6e02dc8abf16ec6e4ee9d1e",
+                "reference": "8434161116fdac36e6e02dc8abf16ec6e4ee9d1e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.6",
+                "illuminate/support": "^5.6",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\SchemalessAttributes\\SchemalessAttributesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\SchemalessAttributes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add schemaless attributes to Eloquent models",
+            "homepage": "https://github.com/spatie/laravel-schemaless-attributes",
+            "keywords": [
+                "laravel-schemaless-attributes",
+                "spatie"
+            ],
+            "time": "2018-10-29T14:19:01+00:00"
         },
         {
             "name": "spatie/laravel-tags",
@@ -4651,16 +4708,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.1",
+            "version": "7.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c23d78776ad415d5506e0679723cb461d71f488f"
+                "reference": "7c89093bd00f7d5ddf0ab81dee04f801416b4944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c23d78776ad415d5506e0679723cb461d71f488f",
-                "reference": "c23d78776ad415d5506e0679723cb461d71f488f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7c89093bd00f7d5ddf0ab81dee04f801416b4944",
+                "reference": "7c89093bd00f7d5ddf0ab81dee04f801416b4944",
                 "shasum": ""
             },
             "require": {
@@ -4731,7 +4788,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-12-12T07:20:32+00:00"
+            "time": "2019-01-15T08:19:08+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
