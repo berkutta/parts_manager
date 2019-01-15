@@ -5,7 +5,7 @@
    @include('pages.sidebar')
    <div class="col-md-9">
    <a class="btn btn-success create-btn" href="/components/create" role="button">Create</a>
-      <div class="table-responsive-md">
+      <div class="table-responsive-md d-none d-md-block">
       <table class="table table-hover">
          <thead>
             <tr>
@@ -84,6 +84,65 @@
             @endforeach
          </tbody> 
       </table>
+      </div>
+
+      <div class="td-md-none">
+         @foreach ($entries as $entry)
+         <div class="card card-margin">
+            <div class="card-body">
+               <h5 class="card-title">{{ $entry->name }}</h5>
+               <p class="card-text">Category: {{ $entry->category }}</p>
+               @if ($entry->stock_flag == 1)
+               <p class="card-text">Stock: {{ $entry->stock }}</p>
+               @endif
+               @foreach ($entry->tags as $tag)
+               <span class="badge badge-primary tag-margin">{{ $tag->slug }}</span>
+               @endforeach
+                  <div class="form-row">
+                  @if ($entry->stock_flag == 1)
+                     <div class="control-element">
+                        <form action="/components/{{ $entry->id }}" method="POST">
+                           @csrf
+                           <input type="hidden" name="stock" value="+1" />
+                           <input type="hidden" name="_method" value="put" />
+                           <input class="btn btn-primary" type="submit" value="+" />
+                           <br/>
+                        </form>
+                     </div>
+                     <div class="control-element">
+                        <form action="/components/{{ $entry->id }}" method="POST">
+                           @csrf
+                           <input type="hidden" name="stock" value="-1" />
+                           <input type="hidden" name="_method" value="put" />
+                           <input class="btn btn-primary" type="submit" value="-" />
+                           <br/>
+                        </form>
+                     </div>
+                  @else
+                  @endif
+                     @empty($entry->extra_attributes['datasheet'])
+
+                     @else
+                     <div class="control-element">
+                        <a class="btn btn-primary" href="{{ $entry->extra_attributes['datasheet'] }}"><i class="fas fa-info"></i></a>
+                     </div>
+                     @endempty
+
+                     <div class="control-element">
+                        <a class="btn btn-primary" href="/components/{{ $entry->id }}/edit"><i class="fas fa-edit"></i></a>
+                     </div>
+                     <div class="control-element">
+                        <form onsubmit="return confirm('Do you really want to delete {{ $entry->name }}?');" action="/components/{{ $entry->id }}" method="POST">
+                           @csrf
+                           <input type="hidden" name="_method" value="delete" />
+                           <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                           <br/>
+                        </form>
+                     </div>
+                  </div>
+            </div>
+         </div>
+         @endforeach
       </div>
 
       <div class="text-xs-center">
