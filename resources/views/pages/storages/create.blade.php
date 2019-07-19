@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if ($errors->any())
+   @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">{{ $error }}</div>
+   @endforeach
+@endif
+
 <div class="row">
    @include('pages.sidebar')
    <div class="col-md-9">

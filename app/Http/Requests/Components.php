@@ -33,7 +33,6 @@ class Components extends FormRequest
             {
                 return [
                     'name' => 'required|unique:components|max:255',
-                    'category' => 'required',
                     'stock' => 'required',
                 ];
             }
