@@ -41,7 +41,7 @@
                         @endif
                     @else
                         <form class="form-inline my-2 my-lg-0" action="/components/search" method="GET">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search" value="{{ app('request')->input('search') }}">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                         <li class="nav-item dropdown">
