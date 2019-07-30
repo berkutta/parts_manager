@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Auth;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -14,6 +15,9 @@ class Component extends Model
     protected $fillable = ['name', 'datasheet', 'category', 'subcategory', 'package', 'supplier', 'description', 'stock'];
 
     use \Spatie\Tags\HasTags;
+    use Searchable;
+
+    public $asYouType = true;
 
     public $casts = [
         'extra_attributes' => 'array',
@@ -42,5 +46,16 @@ class Component extends Model
         }
 
         parent::save($options);
+    }
+    
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'category' => $this->category,
+            'description' => $this->description,
+            'tags' => $this->tags()->pluck('slug'),
+        ];
     }
 }

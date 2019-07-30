@@ -15,6 +15,7 @@ return array(
 EOT
 
 php /var/www/html/artisan migrate --force
+php /var/www/html/artisan scout:import App\\Component
 
 chown -R www-data:www-data /var/www/html
 

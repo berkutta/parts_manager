@@ -147,7 +147,7 @@ class ComponentsController extends Controller
     {
         $searchterm = $request->input('search');
 
-        $entries = Component::where('name', 'like', "%{$searchterm}%")->paginate(15);
+        $entries = Component::search($searchterm)->paginate(15);
 
         return view('pages/components/index', ['entries' => $entries]);
     }
