@@ -47,7 +47,7 @@ class Component extends Model
 
         parent::save($options);
     }
-    
+
     public function toSearchableArray()
     {
         return [
@@ -55,7 +55,9 @@ class Component extends Model
             'name' => $this->name,
             'category' => $this->category,
             'description' => $this->description,
-            'tags' => $this->tags()->pluck('slug'),
+            'tags' => $this->tags()->pluck('slug')->implode(' '),
+            'attribute_keys' => implode(' ', array_keys($this->extra_attributes->all()) ),
+            'attribute_values' => implode(' ', array_values($this->extra_attributes->all()) ),
         ];
     }
 }
