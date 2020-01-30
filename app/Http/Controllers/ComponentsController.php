@@ -46,6 +46,7 @@ class ComponentsController extends Controller
         $entry->storage_id = Storage::where('name', $request->input('storage'))->get()->first()->id;
         $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
 
+        // We need to already save the entry here so we are able to attach tags to it later
         $entry->save();
 
         if(!empty($request->input('tags'))) {
