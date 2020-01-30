@@ -38,7 +38,7 @@
       </table>
    </div>
       <div class="text-xs-center">
-         {!! $entries->appends(request()->except('page'))->links() !!}
+         {!! str_replace("pagination", "pagination flex-wrap", $entries->appends(request()->except('page'))->links()) !!}
       </div>
 </div>
 </div>
