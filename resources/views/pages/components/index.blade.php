@@ -147,6 +147,19 @@
                      <div class="control-element">
                         <a class="btn btn-primary" href="/components/{{ $entry->id }}/edit"><i class="fas fa-edit"></i></a>
                      </div>
+
+                     @foreach ($custom_buttons as $key => $value)
+                     <td class="control-element">
+                        <form method="POST" action="/components/action">
+                           @csrf
+                           <input type="hidden" name="component" value="{{ $entry->id }}" />
+                           <input type="hidden" name="command" value="{{ $value }}" />
+                           <button type="submit" class="btn btn-primary"><i class="fas fa-code"></i></button>
+                           <br/>
+                        </form>
+                     </td>
+                     @endforeach
+
                      <div class="control-element">
                         <form onsubmit="return confirm('Do you really want to delete {{ $entry->name }}?');" action="/components/{{ $entry->id }}" method="POST">
                            @csrf
