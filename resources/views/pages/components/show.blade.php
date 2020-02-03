@@ -90,7 +90,7 @@
                   <div class="form-group row">
                      <label class="col-sm-2 col-form-label" for="id">Attributes</label>
                      <div class="col-sm-10">
-                        <table class="table">
+                        <table id="attributes" class="table">
                            <thead>
                               <tr>
                                  <th scope="col">Key</th>
@@ -102,16 +102,19 @@
                               <tr>
                                  <td><input type="text" class="form-control" name="key[]" list="keys" value="{{ $key }}" /></td>
                                  <td><input type="text" class="form-control" name="attribute[]" value="{{ $attribute }}" /></td>
+                                 @if ($loop->first)
+                                 <td><button type="button" onclick="addAtributesRow()" class="btn btn-success">+</button></td>
+                                 @endif
                               </tr>
                               @endforeach
+
+                              @if (count($entry->extra_attributes->all()) == 0)
                               <tr>
                                  <td><input type="text" class="form-control" name="key[]" list="keys" /></td>
                                  <td><input type="text" class="form-control" name="attribute[]" /></td>
+                                 <td><button type="button" onclick="addAtributesRow()" class="btn btn-success">+</button></td>
                               </tr>
-                              <tr>
-                                 <td><input type="text" class="form-control" name="key[]" list="keys" /></td>
-                                 <td><input type="text" class="form-control" name="attribute[]" /></td>
-                              </tr>
+                              @endif
                            </tbody>                     
                         </table>
                      </div>
@@ -131,4 +134,11 @@
       </div>
    </div>
 </div>
+
+<script>
+function addAtributesRow() {
+   $('#attributes').append('<tr><td><input type="text" class="form-control" name="key[]" list="keys" /></td><td><input type="text" class="form-control" name="attribute[]" /></td></tr>')
+}
+</script>
+
 @endsection

@@ -53,6 +53,13 @@ class ComponentsController extends Controller
         $entry->storage_id = Storage::where('name', $request->input('storage'))->get()->first()->id;
         $request->input('stock_flag') == 'on' ? $entry->stock_flag = true : $entry->stock_flag = false;
 
+        $entry->extra_attributes = [];
+        foreach(array_combine($request->input('key'), $request->input('attribute')) as $key => $attribute) {
+            if(!empty($key)) {
+                $entry->extra_attributes[$key] = $attribute;
+            }
+        }
+
         // We need to already save the entry here so we are able to attach tags to it later
         $entry->save();
 
