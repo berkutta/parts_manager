@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 use App\Component;
 use App\Storage;
 
+use Illuminate\Http\Request;
+
 use App\Http\Requests\Components;
+
+use App\Plugins\PluginFunctions;
 
 class ComponentsController extends Controller
 {
@@ -17,7 +21,10 @@ class ComponentsController extends Controller
     {
         $entries = Component::paginate(15);
 
-        return view('pages/components/index', ['entries' => $entries]);
+        $plugins = new PluginFunctions();
+        $custom_buttons = $plugins->get_custom_buttons();
+
+        return view('pages/components/index', ['entries' => $entries, 'custom_buttons' => $custom_buttons]);
     }
 
     /**
@@ -151,6 +158,17 @@ class ComponentsController extends Controller
         $entries = Component::search($searchterm)->paginate(15);
 
         return view('pages/components/index', ['entries' => $entries]);
+    }
+
+    public function action(Request $request)
+    {        
+        $plugins = new PluginFunctions();
+
+        $custom_function = $plugins->get_custom_command($request->input('command'));
+
+        if($custom_function != null)    $custom_function(Component::find($request->input('component')));
+
+        return redirect()->back();
     }
     
     /**

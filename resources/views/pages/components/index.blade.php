@@ -22,6 +22,9 @@
                   <th scope="col"></th>
                   <th scope="col"></th>
                   <th scope="col"></th>
+                  @foreach ($custom_buttons as $custom_button)
+                  <th scope="col"></th>                   
+                  @endforeach
                </tr>
             </thead>
 
@@ -71,7 +74,20 @@
                   <td></td>
                   <td></td>
                   @endif
-                     <td class="control-element"><a class="btn btn-primary" href="/components/{{ $entry->id }}/edit"><i class="fas fa-edit"></i></a></td>
+                  <td class="control-element"><a class="btn btn-primary" href="/components/{{ $entry->id }}/edit"><i class="fas fa-edit"></i></a></td>
+
+                  @foreach ($custom_buttons as $key => $value)
+                  <td class="control-element">
+                     <form method="POST" action="/components/action">
+                        @csrf
+                        <input type="hidden" name="component" value="{{ $entry->id }}" />
+                        <input type="hidden" name="command" value="{{ $value }}" />
+                        <input class="btn btn-primary" type="submit" value="{{ $key }}" />
+                        <br/>
+                     </form>
+                  </td>
+                  @endforeach
+
                   <td class="control-element">
                      <form onsubmit="return confirm('Do you really want to delete {{ $entry->name }}?');" action="/components/{{ $entry->id }}" method="POST">
                         @csrf

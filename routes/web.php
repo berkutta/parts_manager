@@ -20,4 +20,5 @@ Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 Route::resource('storages', 'StoragesController')->middleware('auth');
 
 Route::get('components/search', "ComponentsController@search")->middleware('auth');
+Route::post('components/action', "ComponentsController@action");
 Route::resource('components', 'ComponentsController')->middleware('auth');
