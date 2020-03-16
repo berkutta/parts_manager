@@ -157,7 +157,10 @@ class ComponentsController extends Controller
 
         $entries = Component::search($searchterm)->paginate(15);
 
-        return view('pages/components/index', ['entries' => $entries]);
+        $plugins = new PluginFunctions();
+        $custom_buttons = $plugins->get_custom_buttons();
+
+        return view('pages/components/index', ['entries' => $entries, 'custom_buttons' => $custom_buttons]);
     }
 
     public function action(Request $request)
