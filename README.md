@@ -13,7 +13,7 @@ You can use this Software with a LAMP Stack, or much easier Docker. For the Dock
 docker run -v /my/path/.env:/var/www/html/.env -p 80:80 berkutta/parts_manager
 ```
 
-The recommended .env config file looks like following, change mysql credentials to our setup:
+The recommended .env config file looks like following, change mysql credentials to your setup:
 ```
 APP_KEY=base64:MGrJqE4HL/BZwwDPrxHarRJvJvj6SU1vz1D0oide7i8=
 
