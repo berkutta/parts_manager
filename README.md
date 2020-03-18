@@ -49,6 +49,13 @@ $user->save();
 
 If you are also lazy like me I recommend to install watchtower on your system. The watchtower container checks every 5 minutes if a image of a running docker container on your system has a newer image available on docker hub. If there is a new one it downloads and restarts the container: [watchtower](https://github.com/v2tec/watchtower)
 
+## Plugin System
+
+There is also a very basic plugin system available. With it it is possible to add custom buttons into the UI and control things like lighting up boxes in your assortement box.
+
+![screenshot](./plugin.gif)
+![screenshot](./plugin.png)
+
 ## History
 
 I don't even know if it is a good idea to put this piece of software online. I started creating this software in 2015. As a little explanation, I had no idea on how PHP or even Web technologies work back then. So this piece of software is really just a pile of very bad code.
