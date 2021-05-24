@@ -17,8 +17,7 @@
         "laravel/ui": "^3.2",
         "spatie/laravel-schemaless-attributes": "^2.0",
         "spatie/laravel-tags": "^4.0",
-        "teamtnt/laravel-scout-tntsearch-driver": "^11.3",
-        "ybr-nx/laravel-mariadb": "^1.0"
+        "teamtnt/laravel-scout-tntsearch-driver": "^11.3"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c102e1c1d04b5bb23eb8d1cac6e1c51",
+    "content-hash": "49bba4904171a448ca6d69e916b95713",
     "packages": [
         {
             "name": "brick/math",
@@ -5464,59 +5464,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
-        },
-        {
-            "name": "ybr-nx/laravel-mariadb",
-            "version": "1.0.20",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ybr-nx/laravel-mariadb.git",
-                "reference": "1dd893432237e28d5d43d1de110be925602dd37d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ybr-nx/laravel-mariadb/zipball/1dd893432237e28d5d43d1de110be925602dd37d",
-                "reference": "1dd893432237e28d5d43d1de110be925602dd37d",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": ">=5.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "YbrNX\\MariaDB\\MariaDBServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "YbrNX\\MariaDB\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "EUPL-1.2"
-            ],
-            "authors": [
-                {
-                    "name": "Ingmar Aasoja",
-                    "email": "ingmar@aasoja.ee"
-                }
-            ],
-            "description": "Add MariaDB JSON select support to Laravel",
-            "keywords": [
-                "database",
-                "json",
-                "laravel",
-                "mariadb"
-            ],
-            "support": {
-                "issues": "https://github.com/ybr-nx/laravel-mariadb/issues",
-                "source": "https://github.com/ybr-nx/laravel-mariadb/tree/1.0.20"
-            },
-            "time": "2019-09-11T05:18:47+00:00"
         }
     ],
     "packages-dev": [
