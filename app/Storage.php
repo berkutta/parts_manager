@@ -19,7 +19,9 @@ class Storage extends Model
     {
         if( ! $this->user_id)
         {
-            $this->user_id = Auth::user()->id;
+            if(Auth::user()) {
+                $this->user_id = Auth::user()->id;
+            }
         }
 
         parent::save($options);
