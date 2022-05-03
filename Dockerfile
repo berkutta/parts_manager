@@ -3,7 +3,9 @@ MAINTAINER Benjamin Marty
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-RUN apt update && apt install -y git zip unzip
+RUN apt update && \
+    apt install -y git zip unzip && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY . /var/www/html/
 
