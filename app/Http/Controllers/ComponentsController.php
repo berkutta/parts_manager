@@ -19,7 +19,7 @@ class ComponentsController extends Controller
      */
     public function index()
     {
-        $entries = Component::paginate(15);
+        $entries = Component::paginate(25);
 
         $plugins = new PluginFunctions();
         $custom_buttons = $plugins->get_custom_buttons();
