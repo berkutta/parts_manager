@@ -1,0 +1,14 @@
+image: docker:dind
+
+before_script:
+  - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin
+
+build:
+  stage: build
+  script:
+    - docker build -t berkutta/parts_manager .
+
+deploy:
+  stage: deploy
+  script:
+    - docker image push berkutta/parts_manager:latest
